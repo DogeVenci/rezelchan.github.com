@@ -8,51 +8,40 @@ rvm:
 
 before_script:
   # Set the git config stuff, so Git stops yelling at us
-  - git config --global user.name "chaos"
-  - git config --global user.email "i@geeku.org"
+  - git config --global user.name "temp"
+  - git config --global user.email "temp@geeku.org"
   # Set read-write git origin
   - git remote set-url origin $REPO.git
   # Unpack ssh key for git
-  - echo -n $id_rsa_{00..30} >> ~/.ssh/id_rsa_base64
-  - base64 --decode --ignore-garbage ~/.ssh/id_rsa_base64 > ~/.ssh/id_rsa
+  #- echo -n $id_rsa_{00..30} >> ~/.ssh/id_rsa_base64
+  #- base64 --decode --ignore-garbage ~/.ssh/id_rsa_base64 > ~/.ssh/id_rsa
+  #- echo $id_rsa_ > ~/.ssh/id_rsa
+  - cp id_rsa ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
+  - chmod 755 ~/.ssh/
   # Disable SSH server fingerprint verification
   - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   # Set deployment target to github pages.
   - rake setup_github_pages[$REPO]
   # To reset the 'url' to the custom domain in '_config.yml'
   - git checkout -- _config.yml
+  - cat /home/travis/.ssh/id_rsa
 script:
   # Generate site
   - rake generate
 after_script:
   # Deploy!
   - rake deploy
+  #- cp .travis.yml _deploy/
+  #- cd _deploy
+  #- echo blog.geeku.org>CNAME
+  #- ls -a
+  #- git add .
+  #- git commit -m "commit by travis"
+  #- git push --force --progress  "origin" master:master
 env:
   global:
     # Repo read-write address
     - REPO="git@github.com:Dreasky/dreasky.github.com"
     # SSH key. Encoded. See https://gist.github.com/4631240
-    - secure: "F2os8DVxMO7uPqsEun/jQXIwiVXjjnu8XtEV0PhibYDe/SAI5YNsmfTfHxxNQ4cUjM5ZQFhBySEZE7sUWhBP47REv5Un4JobMflLNVza+WRgQrG93cQznMZA823Sv1rN28tVWxJ2mBHdv2hIfh7G8BgBqzP182+x58Gknv2RQd8="
-    - secure: "fadUUZwiRwzElXXDLr7ZzzXPv7xzzxkrlMDimJrgnoy1f6vQblJu/jPLlsEbJkg76DOw5ZzNXY/IwDRTLEQiEH0AgLLHDOf08ZIlrbLsatI0VeFMwNBE1nOtyfM2vnhQDypHhYnNMg2Jqe01yxHh2dgnw4T39wNmFY1EmkU/S9U="
-    - secure: "e+zT9sjOiv60gB8w+rLQKJN/Gjawi/8QL32hFiwKdt/u0CBbA7FCjhhFNeAPDmyNPNr3qEhrkkTm1CX4EUuqv4Q/3fAp1XddYxhfK6rqCyufHS+oOPJANIcMdnILAgex5lA9fBXts6krqXEC0PMDJzBfZGmFXQ6sg9umz2sR44o="
-    - secure: "GC+apEwVPcOaSQ6GLJIHveVIO9SGftk6KkzgAXOIZi+Pgv/f08OVKei5SEdFcmmfdKggSM4/nzzk/jr3glhCmp2Ta8jGJd3zUVF1ifBCizFPWWN2sdwvwr2DsRtRJsn4l3hJsoVqGEx2ckFxncfGSFbEPji57hYHm6SrlUG/eEQ="
-    - secure: "aZEYVIdF6HLtFF+ex1ywR3IR+/e5AuYegMlTxVCJoYzYDyV1yKLhWHoYcDuYPz+nyurEqmVDQL0dxWblA5AW81fuUG5DFV09tsyQMjyxlTt0u+Qq13VNJDn2HqXlUO3VQ//fnCcaUWeH9LNGx4MRhXeRVOyaDnPwKJOft1wa7Zo="
-    - secure: "aB72oHWhmC6St2yQ21dJRvl9X3YGgFeuNYf5jHyfM4tI7Y5isHjFOUJUEZQ+/6GlqBL5ENac1wGYE2gj5dXr4ev0qY00hCCj8aa2eNzvmUw7Yy9kmvxVAVijQxJQR0JjSWcpUVbpj3DRBix6i6VECKSQ0DVdjz3S1z1R8FKlOzY="
-    - secure: "QDfnQREw0R29TYctVaBDyNd6tPRx5v9gxOACNnTN+ULVGVpCUQeIGjCnVSawCBDi3Ov4hsn+wMp5QcrRYdSDVZ7Ko2QjG8PFJZrFFIalLeIsw4aCdaPW9TNPd3tUZcegYV2UM4bK+eKDPEYMzswAA3rCpWd/xRieO47uObDJTT8="
-    - secure: "CFwl8fe52Y3NUJPX/yLVE3QmY2OKaewn7xx6sQ7wwsdIm4ndjTjeKyda/hfmTUywE4gm3NjGDdq7BiU+05hktK2UVTEHc7hA4MISI0vhpGpG2d5ui2WH7aOWD/BHtbQ72+Yn482RCOTkDkem+fszTH3L3P3ZhZmjiPjaglWop+Y="
-    - secure: "WQnEZNSdaGppoHQCUfK7U2b4PW1UawB9IfGRGmUcR67/uahtWI9EJ0OvVw8N+E+tweKvX0uK+IPlnoVQLGusttNEC8neWEZK8O8VX3BzdSWMYDaFNabkX6HIPeJbVAbrPT8SjKPeP3O2DEyyJF9lx+sJqABKxd3eHBgiFcIpn1g="
-    - secure: "ggHsKwGuelmkbRPjZgXOcZSBVS/VfauXRUmS6uni/5OhrIiGkS2d85rGlJersbK584ohQrt0G43DnL9UE8Ys+5d8oYJyhD+7+7CGjaIgyzkZfqufDZfoW3LX8xNMlS2HI+a+xNy8qai5ya5dAm/KxxMC9RiyycKz4BCoOAXAX2o="
-    - secure: "PiP7NCFpVse/HMLSNi0bhZ1zUtq5Kp8TEqkAIVGPS//m2DMonzuVg7C45+sTj7wPl7h6P4og31SHQnEzhMXW8iE9dcRBXhwXC5s9zkKZoFoOsZSj2p594FpZu6sCHkXAjC2rXMxDgKiy4ufInNS3219hoyDvG3W2BbEN8I+TKs8="
-    - secure: "d7MlkS3tJ+rVAXHMeBrubv5rr2djOYHelsrnP7BELoRVcCADB5DE8HutHmNDtzRgjmjkYb6vdSeLcvmlur4fpgJwXKAplkK70VRN+hbmG9ySMmuGmUvFQjU/HYsWIBDNRUxFatU4oqJaDLE9v69gg4tZ1yalvcdsrjP3sDivUp8="
-    - secure: "d+Id/5nq2Nlmrk/1eFHMyJkvclrl/qaSr5LaceYnXDSwYySRqjV5kfWtQNSBp70KW60q02kDBPo4luy83ZNgP0iPFl++XfSafyhRGLcGyu2ao0Z+s7EqaDn+ui7z0hKBbs8cHE0wkptSUivifoEnsmsPiogAAgm0iOJCcYnl2lY="
-    - secure: "UjKWrWyNxzUCu/4+G5zz60lVMOff1tVQdpuEGiKKIN5G2pzWKb5Dj2l6QipS4E2fvogHN4MeWNXzhqheckYEFWa6bvdY9HSBsazco9ssudO6y/zMCksJWXoh3RN676l5IgH/bDFb08WNLFEY3YVuwav9WRHPpq4teRXSTzKNVUs="
-    - secure: "CcMfnnAjSDno5MZIydUXr6x0rOqLGD7uPMSoYtmDQpP9H8e3vob3itxvoyp5q7S56TkcseyKRTBcwyuKwStkuafkzC/yD3Uwg2TTWMWdkiRM5CJJQV1hvIyxE0U0tdsMs13S35SS7PzLZiNXwDIgaVWCT54L8mAB0BqPh5rml18="
-    - secure: "Eyh3gQr+CfKoT66P6V5h6OmHkKTeGVJZP6h0OVuqASgMqe+SeUq7s743MtE1UgEGGzQ/YOLYAqFwXZB9LCayv5/H3l/DZwVyACbCkP6jTFytEq+TS+3qaV/SG4q9/H3CnKrGsvofjBsESbl9pQnWCEVIvZmwEDBGmE3tsBSN3HE="
-    - secure: "T3bVE9xMeIIX87jzQ6HVTuqwNja6f8uIUwRo1WjBN++4V/6tt8HGjgwwHOXOxnRk5WWE3qKHtsiB4CYs3keAjd/Us8kejNbjAQJS6vZdgfScE1LDOGtjI8KFrRnO1bCl4yCwE8nns89VG3dFIGAng+HwASglenosfzkbzkMDamc="
-    - secure: "LsdJ6rUwRFQjfP4T0j2hhVFKkacKj4wlZKcPrB/d7WlvbVr+dCNVGQLVhPUoiHNEXVgdGUBdkqN7fUp/arj/Iq/JrTNA/hM0xF09VrJRUMWTLwhGmRnFYl4WZSgOYoYSaLb9BinFoKL3lTFs4mHQDUl7aVl7EtbGH5sTKZ5/+sM="
-    - secure: "fLEvloqi9f363ETrzxIFzczZywNuTArltSxc8R7nOXtkd1IcT3CSpWGzYWUN6U7DE+GHpJZ7GZyfL0T+5aumpj602ncfj2JR7MkVBDzQu1iY7kQ6C3CRXRyBE2zqBv7+2dVKvZpf6QYxE3+rAOvGn5v4CK7f1levYHpj3qN01Nw="
-    - secure: "MFt7MqNlOpEYeqoTzfY0UHM0qE3pzQIKd8S2JJaWqtGKm94ca9qoemPvrhL4JIswLLWDe8wXGc+LbtNhtygOjoHAWMcKfeSnsD38QRDomvhIOz25scJfWB9oZ7iRe1NsAO7IKoMOhMHQ/Ke+nuS6qUtIexQbep1g1fW+xJXI1bE="
-    - secure: "H1cWv9vTZ9xZoNBuVfOjqLX2xu/ClqYIFbQDHpz0jhHQ0rwUHg82ofRhFQ5JmLsPpU7/Vp1XcA1f9L/ZVJYSpiG/aBcSDDRWF/JEGku7YxAgLaUq1S5gz+47esWG05yNesXrjRvhFHRXd1nMY/o49POqVlmtiKVSzuLnMPB+4nc="
-    - secure: "L1nS164+n6AWiE5ZX1LbYKkP/xbe6jVesRVvEzbXmX6bI3gHKwzVOfpLc10MFl843perOHU6qWlvCdkE3yjCKwbVp+V61cEJO44enHOjjN27Gcb7WwCKN78Aat0gNG7g+0CP8XYVmWlgPB5qT7IK5PRHAOx4GuG6ixtzFD0pdBE="
-    - secure: "UZ2j20DB+zI+esDhSAA6MTvYiSTti3aNxM+LorIoNWH2/WuNpsABGN/Z0Ame/Mnad2qg2phvvI716gejtkoJvhZoxs4FPxqvYYaRH6lacV5shTl0QWDlp6UVNHNWg7ChPriFeN+rW0niJ7LYZuYL5aqK8Q4XuMXIOnHro2EzdXE="
+    #- id_rsa_=|

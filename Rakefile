@@ -255,13 +255,16 @@ multitask :push do
   Rake::Task[:copydot].invoke(public_dir, deploy_dir)
   puts "\n## Copying #{public_dir} to #{deploy_dir}"
   cp_r "#{public_dir}/.", deploy_dir
-  cd "#{deploy_dir}" do
+  cd "#{deploy_dir}" 
+    puts "\n## Add CNAME and .travis"
+    system "echo blog.geeku.org>CNAME"
+    system "cp ../.travis.yml ./"
     system "git add -A"
     puts "\n## Commiting: Site updated at #{Time.now.utc}"
     message = "Site updated at #{Time.now.utc}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing generated #{deploy_dir} website"
-    system "git push origin #{deploy_branch}"
+    system "git push --force origin #{deploy_branch}"
     puts "\n## Github Pages deploy complete"
   end
 end

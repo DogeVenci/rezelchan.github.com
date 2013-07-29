@@ -1,7 +1,7 @@
 ---
 layout: post
 title: test
-date: "2013-07-04 22:58"
+date: "2013-07-30 22:58"
 comments: true
 categories: null
 published: true
@@ -27,5 +27,5 @@ qwewe
 -------------------------
 测试ProseIO
 ```
- 大得多
+终于搞定了 too
 ```
