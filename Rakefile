@@ -257,7 +257,7 @@ multitask :push do
   cp_r "#{public_dir}/.", deploy_dir
   cd "#{deploy_dir}" do
     puts "\n## Add CNAME and .travis"
-    system "echo blog.geeku.org\>CNAME"
+    system "echo io.geeku.org\>CNAME"
     system "cp ..\/.travis.yml .\/"
     system "git add -A"
     puts "\n## Commiting: Site updated at #{Time.now.utc}"
