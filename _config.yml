@@ -78,7 +78,7 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user: sinnaro@gmail.com
+googleplus_user: sinnaro
 googleplus_hidden: false
 
 # Pinboard
@@ -90,15 +90,20 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: geekuio
-disqus_show_comment_count: true
+#disqus_short_name: geekuio
+#disqus_show_comment_count: true
 
 # Google Analytics
 google_analytics_tracking_id:
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
 
 # duoshuo comments
-#duoshuo_comments: true
+duoshuo_comments: true
 #duoshuo_short_name: yourname
+
+addthis_button: false
+addthis_profile_id: ra-51f7c4ca2bdc7dc5
+
+baidu_button: true

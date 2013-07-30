@@ -1,0 +1,13 @@
+---
+layout: post
+title: "test"
+date: 2013-07-30 20:55
+comments: true
+categories: 
+---
+-------------------------------------
+This is test
+```
+code
+```
+测试中文
