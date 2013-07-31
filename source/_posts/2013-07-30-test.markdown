@@ -10,6 +10,7 @@ categories:
 ```
 code
 ```
+<!--more-->
 -------------------------------------
 #### Pic
 ![test](http://i.minus.com/i01yeD3zCWPoV.jpg)
