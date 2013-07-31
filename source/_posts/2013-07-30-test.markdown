@@ -16,7 +16,7 @@ code
 测试gist:
 {% gist 5940607 %}
 Code Block:
-{% codeblock test lang:Java https://gist.github.com/Dreasky/5940607  RunByRoot %}
+{% codeblock test lang:java https://gist.github.com/Dreasky/5940607  RunByRoot %}
   boolean runCmdByRoot(String cmd){
     Process process=null;
         DataOutputStream os=null;
