@@ -10,4 +10,44 @@ This is test
 ```
 code
 ```
+{% img http://i.minus.com/i01yeD3zCWPoV.jpg %}
+![test](http://i.minus.com/i01yeD3zCWPoV.jpg)
 测试中文
+测试gist
+{ % gist 5940607 %}
+Code Block:
+{ % codeblock test lang:Java https://gist.github.com/Dreasky/5940607  RunByRoot %}
+  boolean runCmdByRoot(String cmd){
+    Process process=null;
+        DataOutputStream os=null;
+        try {
+            process=Runtime.getRuntime().exec("su");
+            os=new DataOutputStream(process.getOutputStream());
+            os.writeBytes(cmd+"\n");
+            os.writeBytes("exit\n");
+            os.flush();
+            process.waitFor();
+            //process.exitValue();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return false;
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+                process.destroy();
+            } catch (Exception e) {
+            }
+        }
+         return true;
+    }
+ 
+//usage:
+//String cmd=String.format("settings put global airplane_mode_on %d\n" +"am broadcast -a android.intent.action.AIRPLANE_MODE --ez state %b\n",bAirMode?0:1,!bAirMode);
+//result=runCmdByRoot(cmd)
+{ % endcodeblock %}

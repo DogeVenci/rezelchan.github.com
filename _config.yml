@@ -3,7 +3,7 @@
 # ----------------------- #
 
 url: http://Dreasky.github.io
-title: My Octopress Blog
+title: Geek.Io
 subtitle: A blogging framework for hackers.
 author: cha0s
 simple_search: http://google.com/search
@@ -94,7 +94,7 @@ delicious_count: 3
 #disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-42853927-1
 
 # Facebook Like
 facebook_like: true
@@ -106,4 +106,4 @@ duoshuo_comments: true
 addthis_button: false
 addthis_profile_id: ra-51f7c4ca2bdc7dc5
 
-baidu_button: true
+baidu_button: false
