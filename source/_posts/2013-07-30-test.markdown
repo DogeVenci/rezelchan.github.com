@@ -51,3 +51,39 @@ Code Block:
 //String cmd=String.format("settings put global airplane_mode_on %d\n" +"am broadcast -a android.intent.action.AIRPLANE_MODE --ez state %b\n",bAirMode?0:1,!bAirMode);
 //result=runCmdByRoot(cmd)
 {% endcodeblock %}
+
+``` java test https://gist.github.com/Dreasky/5940607 runByRoot
+boolean runCmdByRoot(String cmd){
+    Process process=null;
+        DataOutputStream os=null;
+        try {
+            process=Runtime.getRuntime().exec("su");
+            os=new DataOutputStream(process.getOutputStream());
+            os.writeBytes(cmd+"\n");
+            os.writeBytes("exit\n");
+            os.flush();
+            process.waitFor();
+            //process.exitValue();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return false;
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }finally {
+            try {
+                if (os != null) {
+                    os.close();
+                }
+                process.destroy();
+            } catch (Exception e) {
+            }
+        }
+         return true;
+    }
+ 
+//usage:
+//String cmd=String.format("settings put global airplane_mode_on %d\n" +"am broadcast -a android.intent.action.AIRPLANE_MODE --ez state %b\n",bAirMode?0:1,!bAirMode);
+//result=runCmdByRoot(cmd)
+```
