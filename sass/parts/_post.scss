@@ -25,6 +25,9 @@
 			position: fixed;
       		top: 250px;  
       		padding-top: 20px;
+      		@media screen and (max-width: 800px){
+				display: none;
+			}
       		a{
         		@include link-colors($color-main, $color-main-darken);
       		}

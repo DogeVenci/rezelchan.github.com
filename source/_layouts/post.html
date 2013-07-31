@@ -8,7 +8,7 @@ single: true
 	{% include post/sharing.html %}
 {% endunless %}
 
-<script type="text/javascript">
+<script type="text/javascript" defer="true">
   tmp = '<div><a href="#">CONTENTS</a></div>';
   $('.post-index').append(tmp);
   $.each($('h3, h4'), function(index, item){
