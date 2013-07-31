@@ -10,13 +10,13 @@ This is test
 ```
 code
 ```
-{% img http://i.minus.com/i01yeD3zCWPoV.jpg %}
+-------------------------------------
 ![test](http://i.minus.com/i01yeD3zCWPoV.jpg)
-测试中文
-测试gist
-{ % gist 5940607 %}
+-------------------------------------
+测试gist:
+{% gist 5940607 %}
 Code Block:
-{ % codeblock test lang:Java https://gist.github.com/Dreasky/5940607  RunByRoot %}
+{% codeblock test lang:Java https://gist.github.com/Dreasky/5940607  RunByRoot %}
   boolean runCmdByRoot(String cmd){
     Process process=null;
         DataOutputStream os=null;
@@ -50,4 +50,4 @@ Code Block:
 //usage:
 //String cmd=String.format("settings put global airplane_mode_on %d\n" +"am broadcast -a android.intent.action.AIRPLANE_MODE --ez state %b\n",bAirMode?0:1,!bAirMode);
 //result=runCmdByRoot(cmd)
-{ % endcodeblock %}
+{% endcodeblock %}
