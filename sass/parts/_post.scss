@@ -21,6 +21,17 @@
 			@include link-colors($color-gray02, $color-gray01);
 			@include transition(0.3s);
 		}
+		.post-index{
+			position: fixed;
+      		top: 250px;  
+      		padding-top: 20px;
+      		a{
+        		@include link-colors($color-main, $color-main-darken);
+      		}
+      		.menuindexh4{
+        		padding-left: 15px;
+      		}
+    	}
 		.date, .tags, .comments{
 			padding-left: 30px;
 			position: relative;
