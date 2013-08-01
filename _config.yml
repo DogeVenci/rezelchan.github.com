@@ -2,10 +2,10 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://Dreasky.github.io
-title: Geek.Io
+url: http://RezelChan.github.io
+title: Geeku.IO
 subtitle: A blogging framework for hackers.
-author: cha0s
+author: ReZEL Chan
 simple_search: http://google.com/search
 description:
 
@@ -63,7 +63,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user: dreasky
+github_user: ReZELChan
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true

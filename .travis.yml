@@ -25,7 +25,7 @@ before_script:
   - rake setup_github_pages[$REPO]
   # To reset the 'url' to the custom domain in '_config.yml'
   - git checkout -- _config.yml
-  - cat /home/travis/.ssh/id_rsa
+  #- cat /home/travis/.ssh/id_rsa
 script:
   # Generate site
   - rake generate
@@ -42,6 +42,6 @@ after_script:
 env:
   global:
     # Repo read-write address
-    - REPO="git@github.com:Dreasky/dreasky.github.com"
+    - REPO="git@github.com:ReZELChan/rezelchan.github.com"
     # SSH key. Encoded. See https://gist.github.com/4631240
     #- id_rsa_=|
