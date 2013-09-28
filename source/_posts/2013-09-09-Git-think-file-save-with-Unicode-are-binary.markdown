@@ -3,7 +3,7 @@ layout: post
 title: "Git think file save with Unicode are binary"
 date: 2013-09-09 11:15
 comments: true
-categories: 
+categories: [git]
 ---
 Create a `.gitattributes` file with the contents
 ```
