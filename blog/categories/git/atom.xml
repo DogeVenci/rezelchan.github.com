@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: git | Geeku.IO]]></title>
+  <link href="http://RezelChan.github.io/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://RezelChan.github.io/"/>
+  <updated>2014-01-03T06:48:36+00:00</updated>
+  <id>http://RezelChan.github.io/</id>
+  <author>
+    <name><![CDATA[ReZEL Chan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git think file save with Unicode are binary]]></title>
+    <link href="http://RezelChan.github.io/blog/2013/09/09/Git-think-file-save-with-Unicode-are-binary/"/>
+    <updated>2013-09-09T11:15:00+00:00</updated>
+    <id>http://RezelChan.github.io/blog/2013/09/09/Git-think-file-save-with-Unicode-are-binary</id>
+    <content type="html"><![CDATA[<p>Create a <code>.gitattributes</code> file with the contents
+<code>
+*.cpp diff
+</code></p>
+
+<!--more-->
+
+
+<p>The <a href="http://git-scm.com/book">Pro Git book</a> has a <a href="http://git-scm.com/book/ch7-2.html">chapter on Git Attributes</a>, and there&rsquo;s the <a href="http://www.git-scm.com/docs/gitattributes.html">man page</a> of course.</p>
+]]></content>
+  </entry>
+  
+</feed>

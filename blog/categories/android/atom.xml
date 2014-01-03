@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | Geeku.IO]]></title>
+  <link href="http://RezelChan.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://RezelChan.github.io/"/>
+  <updated>2014-01-03T06:48:36+00:00</updated>
+  <id>http://RezelChan.github.io/</id>
+  <author>
+    <name><![CDATA[ReZEL Chan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Monitor Android Emulator Network]]></title>
+    <link href="http://RezelChan.github.io/blog/2013/08/06/Monitor-Android-Emulator-Network/"/>
+    <updated>2013-08-06T14:53:00+00:00</updated>
+    <id>http://RezelChan.github.io/blog/2013/08/06/Monitor-Android-Emulator-Network</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p><code>
+adb shell
+su
+mount
+mount –o remount /dev/block/mtdblock0 /system
+mount
+adb push tcpdump /system/xbin/
+chmod 777 /system/xbin/tcpdump
+adb shell tcpdump -p -vv -s 0 -w /sdcard/cap.pcap
+adb install xxx.apk
+adb pull /sdcard/cap.pcap cap.pcap
+</code>
+Easy way:Install shark for root<br/>
+Copy .pcap and open it in WireShark</p>
+]]></content>
+  </entry>
+  
+</feed>

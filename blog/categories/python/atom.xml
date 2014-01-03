@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: python | Geeku.IO]]></title>
+  <link href="http://RezelChan.github.io/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://RezelChan.github.io/"/>
+  <updated>2014-01-03T06:48:36+00:00</updated>
+  <id>http://RezelChan.github.io/</id>
+  <author>
+    <name><![CDATA[ReZEL Chan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Python garbled code in windows console]]></title>
+    <link href="http://RezelChan.github.io/blog/2013/11/25/Python-garbled-code-in-windows-console/"/>
+    <updated>2013-11-25T16:19:00+00:00</updated>
+    <id>http://RezelChan.github.io/blog/2013/11/25/Python-garbled-code-in-windows-console</id>
+    <content type="html"><![CDATA[<p><code>
+CHCP [nnn]
+chcp 65001    #utf-8
+chcp 936      #gbk
+chcp 437      #us_eng
+</code>
+在命令行标题栏上点击右键，选择"<strong>属性</strong>&ldquo;&ndash;>&rdquo;<strong>字体</strong>&ldquo;，将字体修改为<strong>True Type</strong>字体&rdquo;<strong>Lucida Console</strong>&ldquo;，然后点击确定将属性应用到当前窗口。</p>
+
+<!--more-->
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Virtualenv Usage]]></title>
+    <link href="http://RezelChan.github.io/blog/2013/09/28/virtualenv-usage/"/>
+    <updated>2013-09-28T09:44:00+00:00</updated>
+    <id>http://RezelChan.github.io/blog/2013/09/28/virtualenv-usage</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/pypa/virtualenv">virtualenv</a></p>
+
+<!--more-->
+
+
+<h3>Install</h3>
+
+<p><code>easy_install virtualenv</code>or<code>pip install virtualenv</code></p>
+
+<h3>Usage</h3>
+
+<p><code>
+virtualenv env1
+cd env1
+source bin/activate    //run script\activate.bat on windows
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mechanize Usage]]></title>
+    <link href="http://RezelChan.github.io/blog/2013/08/14/mechanize-usage/"/>
+    <updated>2013-08-14T11:44:00+00:00</updated>
+    <id>http://RezelChan.github.io/blog/2013/08/14/mechanize-usage</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>Init</h3>
+
+<p>``` python
+import machanize
+import cookielib
+import urllib,urllib2</p>
+
+<p>br=mechanize.Browser(history=NoHistroy())
+cj=cookielib.LWPCookieJar()
+br.set_cookiejar(cj)
+br.set_handle_equiv(True)
+br.set_handle_gzip(True)
+br.set_handle_redirect(True)
+br.set_handle_referer(True)
+br.set_handle_robots(False)
+br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)</p>
+
+<h1>br.addheaders = [(&lsquo;User-agent&rsquo;, &lsquo;Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1&rsquo;)]</h1>
+
+<h1>debug?</h1>
+
+<h1>br.set_debug_http(True)</h1>
+
+<h1>br.set_debug_redirects(True)</h1>
+
+<h1>br.set_debug_responses(True)</h1>
+
+<p>```</p>
+
+<h3>Open URL</h3>
+
+<p>``` python
+try:</p>
+
+<pre><code>self.br.open(addr,timeout=15.0)
+</code></pre>
+
+<p>except Exception,e:</p>
+
+<pre><code>print 'error open url:',addr,e
+return 
+</code></pre>
+
+<p>br.response().read()
+br.responese().geturl()
+br.back()
+br.reload()</p>
+
+<p>```</p>
+
+<h3>Form</h3>
+
+<p>``` python
+for form in br.forms():</p>
+
+<pre><code>print form
+</code></pre>
+
+<p>br.select_form(nr=0)
+br.select_form(name=&ldquo;order&rdquo;)
+print br.form
+br.form[&lsquo;u&rsquo;]=&ldquo;username&rdquo;
+br.form[&lsquo;p&rsquo;]=raw_input(&ldquo;password&rdquo;)
+br.submit()
+```</p>
+
+<h3>Links</h3>
+
+<p>```python
+for link in br.links(url_regex=&ldquo;&rdquo;,text_regex=&ldquo;&rdquo;):</p>
+
+<pre><code>print link
+</code></pre>
+
+<p>br.follow_link(link)</p>
+
+<p>```</p>
+]]></content>
+  </entry>
+  
+</feed>

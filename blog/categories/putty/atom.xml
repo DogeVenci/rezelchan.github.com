@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: putty | Geeku.IO]]></title>
+  <link href="http://RezelChan.github.io/blog/categories/putty/atom.xml" rel="self"/>
+  <link href="http://RezelChan.github.io/"/>
+  <updated>2014-01-03T06:48:36+00:00</updated>
+  <id>http://RezelChan.github.io/</id>
+  <author>
+    <name><![CDATA[ReZEL Chan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[putty login SSH by key]]></title>
+    <link href="http://RezelChan.github.io/blog/2014/01/03/putty-login-ssh-by-key/"/>
+    <updated>2014-01-03T14:15:00+00:00</updated>
+    <id>http://RezelChan.github.io/blog/2014/01/03/putty-login-ssh-by-key</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p><code>sudo vi /etc/ssh/sshd_config</code></p>
+
+<ul>
+<li><strong>Protocol 2</strong>                  #使用SSH2</li>
+<li><strong>ServerKeyBits 768</strong>           #加密强度</li>
+<li><strong>PermitRootLogin no</strong>          #不允许用root进行登录</li>
+<li><strong>PermitEmptyPasswords no</strong>     #禁止空密码进行登录</li>
+<li><strong>PasswordAuthentication no</strong>   #不允许密码方式的登录</li>
+</ul>
+
+
+<p><code>sudo vi /etc/hosts.deny</code></p>
+
+<ul>
+<li><strong>sshd: ALL</strong>                   #添加这一行，屏蔽来自所有的SSH连接请求</li>
+</ul>
+
+
+<p><code>sudo vi /etc/hosts.allow</code></p>
+
+<ul>
+<li><strong>sshd: xxx.xxx.xxx.</strong>          #添加这一行，只允许来自内网的SSH连接请求</li>
+</ul>
+
+
+<p><code>
+ssh-keygen -t rsa                  #生成密钥对
+cd ~/.ssh
+cp id_rsa.pub authorized_keys
+chmod 400 authorized_keys          #复制和修改权限
+</code>
+复制 id_rsa 到 windows 的客户端上
+打开 <a href="http://pan.baidu.com/s/1ntnubS9">PUTTYGEN.EXE</a>&ndash; Conversions- import key- Save private key</p>
+]]></content>
+  </entry>
+  
+</feed>

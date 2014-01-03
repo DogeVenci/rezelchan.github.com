@@ -1,0 +1,313 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mechanize Usage - Geeku.IO</title>
+	<meta name="author" content="ReZEL Chan">
+
+	
+	<meta name="description" content="Init 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+import machanize
+import cookielib
+import urllib,urllib2 br=mechanize.Browser(history=NoHistroy &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Geeku.IO" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Geeku.IO</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:RezelChan.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/116768949975940452037?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/ReZELChan" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/ReZELChan" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:RezelChan.github.io">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Mechanize Usage</h2>
+	<div class="entry-content"><!--more-->
+
+
+<h3>Init</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">machanize</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">cookielib</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">urllib</span><span class="o">,</span><span class="nn">urllib2</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">br</span><span class="o">=</span><span class="n">mechanize</span><span class="o">.</span><span class="n">Browser</span><span class="p">(</span><span class="n">history</span><span class="o">=</span><span class="n">NoHistroy</span><span class="p">())</span>
+</span><span class='line'><span class="n">cj</span><span class="o">=</span><span class="n">cookielib</span><span class="o">.</span><span class="n">LWPCookieJar</span><span class="p">()</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">set_cookiejar</span><span class="p">(</span><span class="n">cj</span><span class="p">)</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">set_handle_equiv</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">set_handle_gzip</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">set_handle_redirect</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">set_handle_referer</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">set_handle_robots</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">set_handle_refresh</span><span class="p">(</span><span class="n">mechanize</span><span class="o">.</span><span class="n">_http</span><span class="o">.</span><span class="n">HTTPRefreshProcessor</span><span class="p">(),</span> <span class="n">max_time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="c">#br.addheaders = [(&#39;User-agent&#39;, &#39;Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1&#39;)]</span>
+</span><span class='line'>
+</span><span class='line'><span class="c">#debug?</span>
+</span><span class='line'><span class="c">#br.set_debug_http(True)</span>
+</span><span class='line'><span class="c">#br.set_debug_redirects(True)</span>
+</span><span class='line'><span class="c">#br.set_debug_responses(True)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Open URL</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">try</span><span class="p">:</span>
+</span><span class='line'>    <span class="bp">self</span><span class="o">.</span><span class="n">br</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">addr</span><span class="p">,</span><span class="n">timeout</span><span class="o">=</span><span class="mf">15.0</span><span class="p">)</span>
+</span><span class='line'><span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;error open url:&#39;</span><span class="p">,</span><span class="n">addr</span><span class="p">,</span><span class="n">e</span>
+</span><span class='line'>    <span class="k">return</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">response</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">responese</span><span class="p">()</span><span class="o">.</span><span class="n">geturl</span><span class="p">()</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">back</span><span class="p">()</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">reload</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Form</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">for</span> <span class="n">form</span> <span class="ow">in</span> <span class="n">br</span><span class="o">.</span><span class="n">forms</span><span class="p">():</span>
+</span><span class='line'>    <span class="k">print</span> <span class="n">form</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">select_form</span><span class="p">(</span><span class="n">nr</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">select_form</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;order&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">print</span> <span class="n">br</span><span class="o">.</span><span class="n">form</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;u&#39;</span><span class="p">]</span><span class="o">=</span><span class="s">&quot;username&quot;</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s">&#39;p&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;password&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">submit</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Links</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">br</span><span class="o">.</span><span class="n">links</span><span class="p">(</span><span class="n">url_regex</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="n">text_regex</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">print</span> <span class="n">link</span>
+</span><span class='line'><span class="n">br</span><span class="o">.</span><span class="n">follow_link</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-14T11:44:00+00:00" pubdate data-updated="true">Aug 14<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/crawler/'>crawler</a>, <a class='category' href='/blog/categories/python/'>python</a>
+
+
+</div>
+	
+	<div class="post-index"></div>
+</div>
+</article>
+
+	<div class="share">
+	
+	
+	
+</div>
+
+
+
+<script type="text/javascript" defer="true">
+  tmp = '<div><a href="#">CONTENTS</a></div>';
+  $('.post-index').append(tmp);
+  $.each($('h3, h4'), function(index, item){
+      item.id = 'menuindex'+index;
+      tmpText = $(item).text();
+      if(item.tagName.toLowerCase() == 'h3'){
+        tmpClass = 'menuindexh3';  
+        }else{
+        tmpClass = 'menuindexh4';
+        }
+        tmp = '<div class="' + tmpClass +'"><a href="#' + item.id +
+        '">' + tmpText + '</a></div>';  
+      $('.post-index').append(tmp);
+  });
+</script>
+
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"geeku"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2014
+
+    ReZEL Chan
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42853927-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | Geeku.IO]]></title>
+  <link href="http://RezelChan.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://RezelChan.github.io/"/>
+  <updated>2014-01-03T06:48:36+00:00</updated>
+  <id>http://RezelChan.github.io/</id>
+  <author>
+    <name><![CDATA[ReZEL Chan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Use Octopress]]></title>
+    <link href="http://RezelChan.github.io/blog/2013/08/01/Use-Octopress/"/>
+    <updated>2013-08-01T11:35:00+00:00</updated>
+    <id>http://RezelChan.github.io/blog/2013/08/01/Use-Octopress</id>
+    <content type="html"><![CDATA[<p><strong>Blogging like a Geek!</strong></p>
+
+<!--more-->
+
+
+<h3>Install</h3>
+
+<p><strong>In Windows:</strong><br/>
+<a href="https://code.google.com/p/msysgit/downloads/list">Msysgit</a><br/>
+<a href="http://files.rubyforge.vm.bytemark.co.uk/rubyinstaller/rubyinstaller-1.9.3-p429.exe">Ruby</a><br/>
+<a href="http://cloud.github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe">DevKit</a><br/>
+<a href="http://www.python.org/download/">Python</a><br/>
+Octopress:<code>git://github.com/imathis/octopress.git</code></p>
+
+<h4>Install DevKit</h4>
+
+<p><code>
+cd DevKit
+ruby dk.rb init
+ruby dk.rb install
+</code></p>
+
+<h4>Install pygments</h4>
+
+<p>安装Python,<a href="https://pypi.python.org/pypi/setuptools">easy_install</a><br/>
+<code>easy_install pygments</code>.</p>
+
+<h4>Install Octopress</h4>
+
+<p><code>
+git clone git://github.com/imathis/octopress.git octopress
+</code>
+更改源:<br/>
+<code>
+gem sources -a http://ruby.taobao.org/
+gem sources -r http://rubygems.org/
+gem sources -l
+</code>
+同时修改Octopress目录下的Gemfile里的源.<br/>
+安装依赖项:<br/>
+<code>
+gem install bundler
+bundle install
+rake install
+</code></p>
+
+<h4>In Linux</h4>
+
+<p><code>
+sudo apt-get update; sudo apt-get install git
+curl -L https://get.rvm.io | bash -s stable --ruby
+gem install bundler
+bundle install
+</code></p>
+
+<h3>Preview</h3>
+
+<p><code>
+rake new_post['Hello World']
+</code>
+编辑在<strong>source/_posts</strong> 生成Markdown文件.<a href="http://wowubuntu.com/markdown/">Markdown Reference</a><br/>
+<code>
+rake generate #生成
+rake preview #可以在浏览器localhost:4000预览
+</code>
+rake 版本问题使用<code>bundle exec rake</code>.</p>
+
+<h4><strong>中文问题</strong></h4>
+
+<p><code>
+set LANG=zh_CN.UTF-8
+set LC_ALL=zh_CN.UTF-8
+</code>
+含有中文的文件需要<strong>Save whit Encoding UTF-8 without BOM</strong>,
+修改ruby目录<code>\lib\ruby\gems\1.9.1\gems\jekyll-0.12.0\lib\jekyll\convertible.rb</code>文件中<code>self.content = File.read(File.join(base, name), :encoding =&gt; 'utf-8')</code>.</p>
+
+<h3>Deploy</h3>
+
+<p>在github上新建一个以自己用户名<strong>username</strong>.github.com的repository.<br/>
+在Octopress中<code>rake setup_github_pages</code> 安装提示输入新建的repository地址,
+最后<code>rake deploy</code>部署到github page.<br/>
+提交source分支备份.</p>
+
+<h3>References</h3>
+
+<ul>
+<li><a href="http://octopress.org/docs/">http://octopress.org/docs/</a></li>
+<li><a href="https://github.com/imathis/octopress/wiki">https://github.com/imathis/octopress/wiki</a></li>
+<li><a href="http://happycasts.net/episodes/36?autoplay=true">http://happycasts.net/episodes/36?autoplay=true</a></li>
+<li><a href="https://github.com/imathis/octopress/wiki/Octopress-Sites">https://github.com/imathis/octopress/wiki/Octopress-Sites</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
